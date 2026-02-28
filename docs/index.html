@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>2026 Prayer Journey</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Splash Screen -->
+  <div class="splash" id="splash">
+    <div class="splash-cross">✝</div>
+    <p class="splash-text">Loading Prayer Journal…</p>
+  </div>
+
+  <!-- Starfield -->
+  <div class="starfield" id="starfield"></div>
+
+  <!-- Cross Watermark -->
+  <div class="cross-watermark" aria-hidden="true">
+    <svg viewBox="0 0 100 140" xmlns="http://www.w3.org/2000/svg">
+      <rect x="39" y="0" width="22" height="140" rx="5" fill="currentColor"/>
+      <rect x="0" y="36" width="100" height="22" rx="5" fill="currentColor"/>
+    </svg>
+  </div>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <button class="nav-brand" id="nav-brand-btn" aria-label="Go to home">
+      <span class="nav-cross" aria-hidden="true">✝</span>
+      <span>Prayer Journal 2026</span>
+    </button>
+    <div class="nav-people" id="nav-people" aria-label="Quick navigation"></div>
+  </nav>
+
+  <main>
+    <!-- ── HOME VIEW ──────────────────────────────────── -->
+    <div id="view-home" class="view active">
+
+      <header class="hero">
+        <div class="hero-glow" aria-hidden="true"></div>
+        <div class="hero-cross-wrap" aria-hidden="true">
+          <svg viewBox="0 0 100 140" class="hero-cross-svg">
+            <defs>
+              <linearGradient id="cg" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%"   stop-color="#efe0b0"/>
+                <stop offset="50%"  stop-color="#c9a84c"/>
+                <stop offset="100%" stop-color="#8a6820"/>
+              </linearGradient>
+            </defs>
+            <rect x="39" y="0" width="22" height="140" rx="5" fill="url(#cg)"/>
+            <rect x="0"  y="36" width="100" height="22" rx="5" fill="url(#cg)"/>
+          </svg>
+        </div>
+
+        <h1 class="hero-title">2026 Prayer Journey</h1>
+        <p class="hero-subtitle">Lifting Each Other Up in Faith</p>
+
+        <div class="divider" aria-hidden="true">
+          <span class="divider-line"></span>
+          <span class="divider-gem">✦</span>
+          <span class="divider-line"></span>
+        </div>
+
+        <p class="hero-verse">"The prayer of a righteous person is powerful and effective."</p>
+        <p class="hero-verse-ref">— James 5:16</p>
+      </header>
+
+      <section class="people-section">
+        <h2 class="section-heading">
+          <span class="sh-gem" aria-hidden="true">✦</span>
+          Our Prayer Family
+          <span class="sh-gem" aria-hidden="true">✦</span>
+        </h2>
+        <div class="people-grid" id="people-grid">
+          <!-- Cards injected by JS -->
+        </div>
+      </section>
+    </div>
+
+    <!-- ── PERSON DETAIL VIEW ─────────────────────────── -->
+    <div id="view-person" class="view">
+      <div class="detail-wrap">
+
+        <button class="back-btn" id="back-btn">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M10 3L5 8L10 13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Back to All
+        </button>
+
+        <!-- Person header -->
+        <div class="person-header">
+          <div class="person-icon" aria-hidden="true">✦</div>
+          <h1 class="person-name" id="detail-name"></h1>
+
+          <div class="scripture-card">
+            <span class="qmark qmark-open" aria-hidden="true">"</span>
+            <blockquote class="scripture-text" id="detail-scripture"></blockquote>
+            <span class="qmark qmark-close" aria-hidden="true">"</span>
+            <cite class="scripture-ref" id="detail-ref"></cite>
+          </div>
+        </div>
+
+        <!-- Prayers -->
+        <section class="prayers-section">
+          <h2 class="section-heading sm">
+            <span class="sh-cross" aria-hidden="true">✝</span>
+            Prayers
+          </h2>
+          <div class="prayers-list" id="prayers-list">
+            <!-- Injected by JS -->
+          </div>
+
+          <!-- Add Prayer Form -->
+          <div class="add-prayer-card" id="add-prayer-card">
+            <h3 class="form-heading">Add Your Prayer</h3>
+            <form id="prayer-form" novalidate>
+              <div class="form-group">
+                <label for="author-name">Your Name</label>
+                <input
+                  type="text"
+                  id="author-name"
+                  autocomplete="name"
+                  placeholder="Enter your name"
+                  maxlength="60"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="prayer-content">Your Prayer</label>
+                <textarea
+                  id="prayer-content"
+                  rows="6"
+                  placeholder="Write your prayer here…"
+                  maxlength="3000"
+                  required
+                ></textarea>
+              </div>
+              <div class="form-actions">
+                <span class="char-count" id="char-count">0 / 3000</span>
+                <button type="submit" class="submit-btn" id="submit-btn">
+                  <span class="btn-cross" aria-hidden="true">✝</span>
+                  Post Prayer
+                </button>
+              </div>
+            </form>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <span class="footer-cross" aria-hidden="true">✝</span>
+    <p>Walking in faith together · 2026</p>
+  </footer>
+
+  <!-- type="module" required for Supabase ES import -->
+  <script type="module" src="app.js"></script>
+</body>
+</html>
