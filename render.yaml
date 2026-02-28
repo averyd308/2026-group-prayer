@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: prayer-journal-2026
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: python server.py
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: prayer-journal-db
+          property: connectionString
+
+databases:
+  - name: prayer-journal-db
+    databaseName: prayers
+    user: prayers_user
+    plan: free
