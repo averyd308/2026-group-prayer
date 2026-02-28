@@ -1,0 +1,13 @@
+{
+  "name": "prayer-journal-2026",
+  "version": "1.0.0",
+  "description": "2026 Prayer Journey — Lifting Each Other Up in Faith",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "better-sqlite3": "^9.4.3"
+  }
+}
